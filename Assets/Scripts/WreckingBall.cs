@@ -20,20 +20,6 @@ public class WreckingBall : MonoBehaviour
         ballStart = GameObject.Find("BallStart").transform;    
     }
     
-    //remove this when attaching to player ship
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse0) && readyToLaunch)
-        {
-            Launch();
-        }
-        if(readyToLaunch)
-        {
-            this.transform.position = ballStart.position;
-            this.transform.rotation = ballStart.rotation;
-        }
-    }
-
     public void Launch()
     {
         readyToLaunch = false;
@@ -42,28 +28,33 @@ public class WreckingBall : MonoBehaviour
         rb.AddForce(ballStart.forward * launchForce, ForceMode.Impulse);
     }
 
+    public bool IsReadyToLaunch()
+    {
+        return readyToLaunch;
+    }
+
+    public Transform GetBallStartTransform()
+    {
+        return ballStart;
+    }
+
     private IEnumerator Return()
     {
         yield return new WaitForSeconds(returnDelay);
         rb.isKinematic = true;
-        //lerp back to start position
-        // this.transform.localPosition = new Vector3(0, 0, 0);
-        // this.transform.localRotation = Quaternion.identity;
 
         float counter = 0;
         Vector3 startPosition = this.transform.position;
-        //Vector3 endPosition = ballStart.position;
-
         Quaternion startRotation = this.transform.rotation;
 
         while(counter < 1)
         {
             counter += Time.deltaTime / ReturnIntervalInSeconds;
             
-            //lerping position
+            // lerping position
             this.transform.position = Vector3.Lerp(startPosition, ballStart.position, curve.Evaluate(counter));
             
-            //lerping rotation
+            // lerping rotation
             this.transform.rotation = Quaternion.Lerp(startRotation, ballStart.rotation, counter);
 
             yield return new WaitForEndOfFrame();

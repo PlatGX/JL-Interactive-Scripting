@@ -486,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467958458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.999}
+  m_LocalPosition: {x: 0, y: 0, z: 1.594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8667966943314974991, guid: 11aec84943254cc4dbd8c7998e9092fa, type: 3}
+      propertyPath: wreckingBall
+      value: 
+      objectReference: {fileID: 95392784}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
