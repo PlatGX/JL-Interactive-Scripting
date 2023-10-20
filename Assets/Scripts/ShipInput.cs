@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShipInput : MonoBehaviour
 {
     [SerializeField] private ShipCamera shipCam;
-    [SerializeField] private WreckingBall wreckingBall;
+    [SerializeField] private WreckingBall wreckingBall; //added this
 
     private ShipMovement shipMove;
     
@@ -11,7 +11,7 @@ public class ShipInput : MonoBehaviour
     {
         if(shipCam == null) shipCam = this.gameObject.GetComponent<ShipCamera>();
         shipMove = this.GetComponent<ShipMovement>();
-        if(wreckingBall == null) wreckingBall = this.gameObject.GetComponent<WreckingBall>();
+        if(wreckingBall == null) wreckingBall = this.gameObject.GetComponent<WreckingBall>(); //added this
     }
 
     void Update()
@@ -19,7 +19,7 @@ public class ShipInput : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse1)) shipCam.ZoomOut();
         if(Input.GetKeyUp(KeyCode.Mouse1)) shipCam.DefaultZoom();
         
-        // Input code from WreckingBall.cs
+        // Added this input code from WreckingBall.cs
         if(Input.GetKeyDown(KeyCode.Mouse0) && wreckingBall.IsReadyToLaunch())
         {
             wreckingBall.Launch();

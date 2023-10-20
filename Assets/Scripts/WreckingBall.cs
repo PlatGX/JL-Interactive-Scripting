@@ -20,6 +20,8 @@ public class WreckingBall : MonoBehaviour
         ballStart = GameObject.Find("BallStart").transform;    
     }
     
+    //Input moved to ShipInput.cs
+    
     public void Launch()
     {
         readyToLaunch = false;
